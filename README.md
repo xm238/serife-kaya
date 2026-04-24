@@ -2,7 +2,7 @@
 
 Template source: besiktas
 
-- Template core CSS/JS/animations korunmuştur
-- Logo özel SVG olarak eklendi
-- Görseller runtime olarak stock kaynaklardan değiştiriliyor
-- Telefon, adres, marka metinleri patch script ile güncelleniyor
+- Template styles, animations, and structural base are preserved
+- Brand-specific reviews inserted from provided business notes
+- Stock visuals rewritten per site with unique image URLs
+- Contact details, logo, and visible legacy template references patched
