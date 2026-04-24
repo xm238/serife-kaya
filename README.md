@@ -1,7 +1,3 @@
 # Şerife Kaya Beauty
 
-Static landing page for **Şerife Kaya Beauty**.
-
-## Run locally
-
-Open `index.html` in a browser.
+Template-family rebuild with separate HTML/CSS/JS files.
