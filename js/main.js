@@ -2,73 +2,43 @@
   const q = (s, p = document) => p.querySelector(s);
   const qa = (s, p = document) => [...p.querySelectorAll(s)];
 
-  const preloader = q('.site-preloader');
-  window.addEventListener('load', () => {
-    preloader?.classList.add('hidden');
-    setTimeout(() => preloader?.remove(), 450);
-  });
-
-  const menuToggle = q('.menu-toggle');
+  const menuBtn = q('.menu-toggle');
   const nav = q('.nav');
-  menuToggle?.addEventListener('click', () => nav?.classList.toggle('open'));
+  menuBtn?.addEventListener('click', () => nav?.classList.toggle('open'));
 
-  const heroSlides = qa('.hero-slide');
-  const heroDots = qa('.hero-dot');
-  let heroIndex = 0;
-  function setHero(i) {
-    heroSlides.forEach((s, idx) => s.classList.toggle('active', idx === i));
-    heroDots.forEach((d, idx) => d.classList.toggle('active', idx === i));
-    heroIndex = i;
-  }
-  heroDots.forEach((dot, idx) => dot.addEventListener('click', () => setHero(idx)));
-  if (heroSlides.length > 1) {
-    setInterval(() => setHero((heroIndex + 1) % heroSlides.length), 4800);
-  }
+  const slider = q('[data-slider]');
+  const slides = qa('.hero-slide', slider || document);
+  const dots = qa('.dot', slider || document);
+  let idx = 0;
+  const setSlide = (i) => {
+    slides.forEach((s, n) => s.classList.toggle('active', n === i));
+    dots.forEach((d, n) => d.classList.toggle('active', n === i));
+    idx = i;
+  };
+  dots.forEach((d, i) => d.addEventListener('click', () => setSlide(i)));
+  if (slides.length > 1) setInterval(() => setSlide((idx + 1) % slides.length), 5200);
 
-  const counters = qa('[data-count]');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = Number(el.dataset.count || 0);
-      const duration = 1200;
-      const start = performance.now();
-      const from = 0;
-      const step = (now) => {
-        const p = Math.min((now - start) / duration, 1);
-        el.textContent = Math.floor(from + (target - from) * p).toLocaleString('tr-TR');
-        if (p < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-      io.unobserve(el);
-    });
-  }, { threshold: .45 });
-  counters.forEach((c) => io.observe(c));
-
-  const testimonials = qa('.testimonial');
-  const prev = q('[data-t-prev]');
-  const next = q('[data-t-next]');
-  let tIndex = 0;
-  function setT(i) {
-    testimonials.forEach((t, idx) => t.classList.toggle('active', idx === i));
-    tIndex = i;
-  }
-  prev?.addEventListener('click', () => setT((tIndex - 1 + testimonials.length) % testimonials.length));
-  next?.addEventListener('click', () => setT((tIndex + 1) % testimonials.length));
-  if (testimonials.length > 1) setInterval(() => setT((tIndex + 1) % testimonials.length), 5600);
+  const tItems = qa('.testimonial');
+  let t = 0;
+  const setT = (i) => {
+    tItems.forEach((item, n) => item.classList.toggle('active', n === i));
+    t = i;
+  };
+  q('[data-prev]')?.addEventListener('click', () => setT((t - 1 + tItems.length) % tItems.length));
+  q('[data-next]')?.addEventListener('click', () => setT((t + 1) % tItems.length));
+  if (tItems.length > 1) setInterval(() => setT((t + 1) % tItems.length), 6400);
 
   qa('.faq-item').forEach((item) => {
-    const qBtn = item.querySelector('.faq-q');
-    qBtn?.addEventListener('click', () => item.classList.toggle('open'));
+    item.querySelector('.faq-q')?.addEventListener('click', () => item.classList.toggle('open'));
   });
 
-  const lightbox = q('.lightbox');
-  const lightboxImg = q('.lightbox img');
+  const lightbox = q('#lightbox');
+  const lbImg = q('#lightbox img');
   qa('.gallery-item img').forEach((img) => {
     img.addEventListener('click', () => {
-      if (!lightbox || !lightboxImg) return;
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
+      if (!lightbox || !lbImg) return;
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
       lightbox.classList.add('open');
     });
   });
@@ -90,22 +60,23 @@
       alert('Lütfen ad, telefon ve hizmet alanlarını doldurun.');
       return;
     }
+
     const msg = encodeURIComponent(
-      "Merhaba, Şerife Kaya Beauty için randevu talebim var.\n" +
-      "Ad: " + name + "\n" +
-      "Telefon: " + phone + "\n" +
-      "Hizmet: " + service + "\n" +
-      "Tarih: " + (date || "Belirtilecek") + "\n" +
-      "Not: " + (note || "-")
+      'Merhaba, Şerife Kaya Beauty için randevu talebi oluşturmak istiyorum.\n' +
+      'Ad Soyad: ' + name + '\n' +
+      'Telefon: ' + phone + '\n' +
+      'Hizmet: ' + service + '\n' +
+      'Tarih: ' + (date || 'Belirtilecek') + '\n' +
+      'Not: ' + (note || '-')
     );
-    window.open("https://wa.me/905330568381?text=" + msg, '_blank');
+    window.open('https://wa.me/905330568381?text=' + msg, '_blank');
   });
 
-  const reveals = qa('.reveal');
-  const revObs = new IntersectionObserver((entries) => {
+  const rev = qa('.reveal');
+  const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) entry.target.classList.add('in');
     });
   }, { threshold: .1 });
-  reveals.forEach((r) => revObs.observe(r));
+  rev.forEach((el) => io.observe(el));
 })();
