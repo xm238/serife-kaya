@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Şerife Kaya Beauty | Beşiktaş</title>
+  <meta name="description" content="Şerife Kaya Beauty için Beşiktaş lokasyonunda hizmetler, galeri, iletişim ve hızlı randevu bilgileri.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&family=Questrial&display=swap" rel="stylesheet">
+  <style>:root{--bg:#0f0b18;--surface:#171223;--text:#f2ecff;--muted:#b4a3d0;--accent:#ff5fd7;--accent2:#7f6bff;--glow:rgba(255,95,215,.2);--head:"Cinzel", serif;--body:"Questrial", sans-serif;--grad:radial-gradient(circle at 15% 20%, #2a1d48 0%, #120d1f 42%, #0b0715 100%)}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.site{min-height:100vh;overflow-x:hidden}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;border-bottom:1px solid color-mix(in srgb,var(--accent) 28%,transparent);background:color-mix(in srgb,var(--surface) 88%,transparent);position:sticky;top:0;backdrop-filter:blur(10px);z-index:20}
+.brand{display:flex;align-items:center;gap:16px;min-height:72px}
+.brand-logo{max-height:76px;width:auto;height:auto}
+.brand-name{font-family:var(--head);font-size:clamp(1.2rem,2.3vw,2.2rem);letter-spacing:.05em}
+.actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 70%,transparent);font-weight:600;transition:all .25s ease}
+.btn.primary{background:linear-gradient(110deg,var(--accent),var(--accent2));color:#fff;border:none;box-shadow:0 10px 30px var(--glow)}
+.btn:hover{transform:translateY(-2px)}
+main{display:grid;gap:64px;padding:24px 5vw 70px}
+.hero{position:relative;border-radius:30px;overflow:hidden;background:var(--grad);box-shadow:0 24px 60px color-mix(in srgb,var(--accent) 20%,transparent)}
+.hero .badge{position:absolute;right:24px;top:24px;background:color-mix(in srgb,var(--surface) 82%,transparent);padding:8px 14px;border-radius:999px;font-weight:700;font-size:.9rem;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+.hero-copy h1{font-family:var(--head);font-size:clamp(2rem,5vw,4.4rem);line-height:1.03;margin:0 0 12px;letter-spacing:.02em}
+.hero-copy p{margin:0;color:var(--muted);font-size:clamp(1rem,2vw,1.25rem);max-width:66ch}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.stat{background:color-mix(in srgb,var(--surface) 88%,transparent);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);padding:10px 14px;border-radius:14px;font-size:.95rem}
+.hero-media img{width:100%;height:100%;object-fit:cover}
+.hero.split{display:grid;grid-template-columns:1.1fr 1fr;align-items:stretch;min-height:540px}
+.hero.split .hero-copy{padding:56px}
+.hero.split .hero-media{min-height:420px}
+.hero.immersive{min-height:620px;display:grid;align-items:end}
+.hero.immersive::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1) 0%, rgba(0,0,0,.65) 100%)}
+.hero.immersive .hero-bg{position:absolute;inset:0}
+.hero.immersive .hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(1.08)}
+.hero.immersive .hero-copy{position:relative;z-index:1;padding:64px;color:#fff;max-width:760px}
+.hero.editorial{display:grid;grid-template-columns:1.1fr .9fr;gap:0;min-height:560px}
+.hero.editorial .hero-copy{padding:56px}
+.hero.editorial .stack{display:grid;grid-template-rows:1fr 1fr;gap:0}
+.hero.editorial .stack img{height:100%;object-fit:cover}
+.hero.neon{display:grid;grid-template-columns:1fr 1fr;min-height:560px;background:radial-gradient(circle at 20% 20%,color-mix(in srgb,var(--accent) 25%,transparent) 0%,transparent 35%),var(--grad)}
+.hero.neon .hero-copy{padding:56px}
+.hero.neon .hero-media{padding:24px;display:grid;place-items:center}
+.hero.neon .hero-media img{border-radius:22px;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);box-shadow:0 18px 45px var(--glow)}
+.section-title{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.section-title h2{font-family:var(--head);font-size:clamp(1.7rem,3vw,3rem);margin:0}
+.section-title p{margin:0;color:var(--muted)}
+.services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.service{background:var(--surface);padding:20px;border-radius:18px;border:1px solid color-mix(in srgb,var(--accent) 18%,transparent);box-shadow:0 8px 20px color-mix(in srgb,var(--accent) 10%,transparent)}
+.service h3{margin:0;font-size:1.02rem}
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.tile{grid-column:span 4;position:relative;border-radius:18px;overflow:hidden;min-height:220px}
+.tile:nth-child(1){grid-column:span 6;min-height:280px}
+.tile:nth-child(2){grid-column:span 3}
+.tile:nth-child(3){grid-column:span 3}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.tile:hover img{transform:scale(1.05)}
+.info-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+.card{background:var(--surface);padding:24px;border-radius:20px;border:1px solid color-mix(in srgb,var(--accent) 20%,transparent)}
+.card h3{font-family:var(--head);font-size:1.6rem;margin:0 0 10px}
+.list{display:grid;gap:10px}
+.list-item{display:flex;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px dashed color-mix(in srgb,var(--accent) 24%,transparent)}
+.foot{padding:28px 5vw 38px;border-top:1px solid color-mix(in srgb,var(--accent) 25%,transparent);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
+.fade{opacity:0;transform:translateY(16px);animation:rise .8s ease forwards}
+.fade:nth-child(2){animation-delay:.1s}.fade:nth-child(3){animation-delay:.2s}.fade:nth-child(4){animation-delay:.3s}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+@media (max-width:1024px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}.hero.split,.hero.editorial,.hero.neon{grid-template-columns:1fr}.hero.editorial .stack{grid-template-columns:1fr 1fr;grid-template-rows:auto;min-height:260px}.info-wrap{grid-template-columns:1fr}}
+@media (max-width:720px){.topbar{padding:14px 4vw}.brand-logo{max-height:58px}.actions{width:100%;justify-content:flex-start}.hero .hero-copy{padding:28px}.hero.immersive .hero-copy{padding:32px}.gallery{grid-template-columns:1fr}.tile,.tile:nth-child(1),.tile:nth-child(2),.tile:nth-child(3){grid-column:1;min-height:230px}.services{grid-template-columns:1fr}.btn{padding:9px 14px;font-size:.9rem}}
+</style>
+</head>
+<body>
+  <div class="site">
+    <header class="topbar">
+      <div class="brand">
+        <img class="brand-logo" src="assets/logo.png" alt="Şerife Kaya Beauty logo">
+        <div class="brand-name">Şerife Kaya Beauty</div>
+      </div>
+      <nav class="actions">
+        <a class="btn" href="#services">Hizmetler</a>
+        <a class="btn" href="#contact">İletişim</a>
+        <a class="btn primary" href="tel:+905330568381">📞 0533 056 83 81</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero neon fade"><span class="badge">Beauty Salon</span><div class="hero-copy"><h1>Şerife Kaya Beauty</h1><p>Epilasyon, cilt bakımı, bölgesel incelme ve kalıcı makyaj hizmetlerinde butik deneyim.</p><div class="stats"><div class="stat">⭐ 4.4 / 5 · 147 yorum</div><div class="stat">Açık · 20:00’de kapanıyor</div></div></div><div class="hero-media"><img src="assets/gallery-1.png" alt="Şerife Kaya Beauty neon galeri"></div></section>
+
+      <section id="services" class="fade">
+        <div class="section-title">
+          <h2>Öne Çıkan Hizmetler</h2>
+          <p>“Özellikle epilasyon ve cilt bakımında sonuçları net görüyoruz.”</p>
+        </div>
+        <div class="services"><article class="service"><h3>Epilasyon</h3></article>
+<article class="service"><h3>Double Chin Tightening</h3></article>
+<article class="service"><h3>Regional Slimming</h3></article>
+<article class="service"><h3>Cilt Bakımı</h3></article></div>
+      </section>
+
+      <section class="fade">
+        <div class="section-title">
+          <h2>Galeri</h2>
+          <p>Marka kimliğine uygun seçilmiş görseller</p>
+        </div>
+        <div class="gallery">
+          <figure class="tile"><img src="assets/gallery-1.png" alt="Şerife Kaya Beauty galeri 1"></figure>
+<figure class="tile"><img src="assets/gallery-2.png" alt="Şerife Kaya Beauty galeri 2"></figure>
+<figure class="tile"><img src="assets/gallery-3.png" alt="Şerife Kaya Beauty galeri 3"></figure>
+<figure class="tile"><img src="https://source.unsplash.com/1600x1000/?beauty,neon,salon&sig=201" alt="Şerife Kaya Beauty galeri 4"></figure>
+<figure class="tile"><img src="https://source.unsplash.com/1400x1000/?skin,care,treatment&sig=202" alt="Şerife Kaya Beauty galeri 5"></figure>
+<figure class="tile"><img src="https://source.unsplash.com/1400x1000/?beauty,spa,room&sig=203" alt="Şerife Kaya Beauty galeri 6"></figure>
+        </div>
+      </section>
+
+      <section id="contact" class="info-wrap fade">
+        <article class="card">
+          <h3>Konum & İletişim</h3>
+          <div class="list">
+            <div class="list-item"><span>Adres</span><strong>Yıldız Mahallesi Serencebey yokuşu sokak No:1/41 Fırat İş Hanı Kat:6, 34349 Beşiktaş/İstanbul</strong></div>
+            <div class="list-item"><span>Telefon</span><a href="tel:+905330568381"><strong>0533 056 83 81</strong></a></div>
+            <div class="list-item"><span>Plus Code</span><strong>22V5+46 Beşiktaş, İstanbul</strong></div>
+            <div class="list-item"><span>Durum</span><strong>Açık · 20:00’de kapanıyor</strong></div>
+            <div class="list-item"><span>Instagram</span><a href="https://instagram.com/serifekayabeauty" target="_blank" rel="noopener"><strong>@serifekayabeauty</strong></a></div>
+          </div>
+          <p style="margin-top:16px"><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Y%C4%B1ld%C4%B1z%20Mahallesi%20Serencebey%20yoku%C5%9Fu%20sokak%20No%3A1%2F41%20F%C4%B1rat%20%C4%B0%C5%9F%20Han%C4%B1%20Kat%3A6%2C%2034349%20Be%C5%9Fikta%C5%9F%2F%C4%B0stanbul" target="_blank" rel="noopener">📍 Haritada Aç</a></p>
+        </article>
+
+        <article class="card">
+          <h3>Hızlı Bilgi</h3>
+          <p>Şerife Kaya Beauty, Beauty Salon kategorisinde Beşiktaş bölgesinde hizmet vermektedir. Sayfadaki görsellerin bir kısmı işletmeye ait paylaşılan materyallerden, bir kısmı da sektörel temsil amaçlı yüksek çözünürlüklü görsellerden oluşturulmuştur.</p>
+          
+        </article>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>© 2026 Şerife Kaya Beauty</span>
+      <span>Beauty Salon · Beşiktaş / İstanbul</span>
+    </footer>
+  </div>
+</body>
+</html>
